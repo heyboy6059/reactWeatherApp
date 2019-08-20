@@ -41,7 +41,14 @@ class App extends React.Component {
         <Titles/>
         <Form getWeather={this.getWeather}/>
         {/* {console.log("this is updated state:", this.state)}; */}
-        <Weather />
+        <Weather
+          city={this.state.city} 
+          temperature={this.state.temperature}
+          country={this.state.country}
+          humidity={this.state.humidity}
+          description={this.state.description}
+          error={this.state.error}
+          />
       </div>
 
     );
