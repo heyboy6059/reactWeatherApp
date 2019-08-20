@@ -7,6 +7,15 @@ const API_KEY = "e22aac4add5291067b43ea666c6778af";
 
 class App extends React.Component {
 
+  state = {
+    temperature: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    description: undefined,
+    error: undefined
+  }
+
   getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
@@ -16,6 +25,14 @@ class App extends React.Component {
     const data = await api_call.json();
     console.log(data);
   
+    this.setState({
+      temperature: data.main.temp,
+      city: data.name,
+      country: data.sys.country,
+      humidity: data.main.humidity,
+      description: data.weather[0].description,
+      erro:""
+    })
   }
 
   render() {
@@ -23,6 +40,7 @@ class App extends React.Component {
       <div>
         <Titles/>
         <Form getWeather={this.getWeather}/>
+        {/* {console.log("this is updated state:", this.state)}; */}
         <Weather />
       </div>
 
