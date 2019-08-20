@@ -1,11 +1,11 @@
 import React from 'react';
+import Titles from './components/Titles';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Hi</p>
-        <h1>Ho</h1>
+        <Titles/>
       </div>
 
     );
